@@ -8,3 +8,5 @@ openai
 langchain
 langchain-openai
 rank_bm25
+python-dotenv
+
