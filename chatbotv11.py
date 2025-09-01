@@ -17,7 +17,7 @@ import streamlit as st
 # ──────────────────────────────────────────────────────────────────────────────
 # 0) CREDENTIALS & STATIC PATHS 
 # ──────────────────────────────────────────────────────────────────────────────
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "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"
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
 METADATA_PATH          = "metadata_cache.json"
@@ -5163,4 +5163,5 @@ with st.chat_message("assistant"):
         else:
             final_response = assistant_text or "I didn't detect a supported request. Try one of the two examples above."
             st.write(final_response)
+
             store_assistant_response(final_response)
