@@ -6,6 +6,5 @@ streamlit
 pinecone
 openai
 langchain
+langchain-openai
 rank_bm25
-pandas
-numpy
