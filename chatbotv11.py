@@ -13,11 +13,19 @@ from collections import defaultdict
 
 import pandas as pd
 import streamlit as st
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 0) CREDENTIALS & STATIC PATHS 
 # ──────────────────────────────────────────────────────────────────────────────
-OPENAI_API_KEY = "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"
+# Load OpenAI API key from environment variable
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    st.error("OPENAI_API_KEY environment variable not found. Please check your .env file.")
+    st.stop()
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
 METADATA_PATH          = "metadata_cache.json"
@@ -5163,5 +5171,4 @@ with st.chat_message("assistant"):
         else:
             final_response = assistant_text or "I didn't detect a supported request. Try one of the two examples above."
             st.write(final_response)
-
             store_assistant_response(final_response)
